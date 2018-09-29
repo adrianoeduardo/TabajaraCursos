@@ -1,0 +1,32 @@
+<table class="table table-active">
+	<tr>				
+		<th> <a href="""> Nº </a></th>
+		<th> <a href=""> Aluno </a></th>
+		<th> <a href=""> Curso </a></th>
+		<th> <a href=""> Status </a></th>
+	</tr>
+	<tr> 
+		<td> {{matricula.matricula}} </td>
+		<td> {{matricula.nome}}</td>
+		<td> {{matricula.nome_curso}}</td>
+		<td> 
+			<select class="custom-select" name="situacao" ng-required="true" ng-model="matricula.status_matricula" ng-options="option.op as option.op for option in situacao" >
+			</select>
+		</td>
+		<td> <a href="" ng-click="verificar()" > <img src="img/save.png" /> </a> </td>
+		<td> <a href="#!/matriculas"> <img src="img/voltar.png" />
+	</tr>
+</table>
+<div ng-show="msg.length" class="alert alert-info"> {{msg}} </div>
+
+<minha-modal nome="myModal">
+	<titulo-modal titulo="Confirmar Conclusão de Curso"> </titulo-modal>
+	<p-modal>
+        <p> O (A) Aluno (a) {{matricula.nome}} concluiu o Curso {{matricula.nome_curso}}. </p>
+    	<p class="alert alert-danger"> Essa alteração não poderá ser desfeita. Deseja prosseguir? </p>
+    </p-modal>
+    <botao-modal>
+        <button type="button" class="btn btn-primary" ng-click="enviar()" data-dismiss="modal">Sim</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+   </botao-modal>
+</minha-modal>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="tabajara">
+<head>
+	<meta charset="UTF-8">
+	<title>Tabajara Cursos</title>
+	<script src="lib/jquery-3.3.1.min.js"></script>
+	<script src="lib/angular.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap.css" />
+	<script src="js/js/funcoes.js"></script>
+	<script src="lib/angular-messages.js"></script>
+	<script src="lib/angular-route.js"></script>
+	<script src="lib/angular-messages.js"></script>
+	<script src="lib/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/controllers/alunos-ctrl.js"></script>
+	<script src="js/controllers/tabajara-alunos-ctrl.js"></script>
+	<script src="js/controllers/profissoes-ctrl.js"></script>
+	<script src="js/controllers/sexo-ctrl.js"></script>
+	<script src="js/controllers/busca-ctrl.js"></script>
+	<script src="js/controllers/tabajara-professores-ctrl.js"></script>
+	<script src="js/controllers/professores-ctrl.js"></script>
+	<script src="js/controllers/tabajara-cursos-ctrl.js"></script>
+	<script src="js/controllers/cursos-ctrl.js"></script>
+	<script src="js/controllers/tabajara-matriculas-ctrl.js"></script>
+	<script src="js/controllers/matriculas-ctrl.js"></script>
+	<script src="js/controllers/detalhes-aluno-ctrl.js"></script>
+	<script src="js/controllers/detalhes-curso-ctrl.js"></script>
+	<script src="js/directives/minhas-diretivas.js"></script>
+	<script src="js/directives/uiCpfDirective.js"></script>
+	<script src="js/directives/uiFoneDirective.js"></script>
+	<script src="js/directives/uiMesesDirective.js"></script>
+	
+</head>
+<body>
+	<div id="interface">
+	<nav class="meumenu">
+		<ul id="principal">
+			<li id="topo" onmouseover="mudaFoto('img/aluno.png')" onmouseout="mudaFoto('img/t-logo.png')" ><a href="#!/alunos"> Alunos </a>
+				<ul id="sub">
+					<li><a href="#!/alunos/new"> Novo Aluno </a> </li>
+					<li><a href="#!/alunos"> Buscar Aluno</a> </li>
+				</ul>
+			</li>
+			<li id="topo" onmouseover="mudaFoto('img/matricula.png')" onmouseout="mudaFoto('img/t-logo.png')" ><a href="#!/matriculas"> Matrículas </a>						
+				
+			</li>
+			<li id="topo" onmouseover="mudaFoto('img/curso.png')" onmouseout="mudaFoto('img/t-logo.png')" ><a href="#!/cursos"> Cursos </a>
+				<ul id="sub">
+					<li><a href="#!/cursos/new"> Novo Curso </a> </li>
+					<li><a href="#!/cursos"> Buscar Curso </a> </li>
+				</ul>						
+			</li>
+			<li id="topo" onmouseover="mudaFoto('img/prof.png')" onmouseout="mudaFoto('img/t-logo.png')"><a href="#!/professores"> Professores </a>
+				<ul id="sub">
+					<li><a href="#!/professores/new"> Novo Professor </a> </li>
+					<li><a href="#!/professores"> Buscar Professor </a> </li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<header id="cabecalho">
+		<h1> Tabajara Cursos </h1>
+		<h2> Sua melhor ou pior opção de cursos! </h2>
+		<img id="icone" src="img/t-logo.png" />
+		
+	</header>
+	<div class="jumbotron">		
+		<ng-view></ng-view>
+		
+	</div>
+	<div style="text-align: center;">
+	&copy 2018 - Desenvolvido por Adriano Eduardo
+	</div>
+	
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+		
+	<table ng-show="professores.length > 0" class="table table-striped" ng-controller="buscaCtrl">
+	<tr>
+		<input type="text" placeholder="O que você está buscando?" class="form-control" ng-model="busca" />
+	</tr>
+	<tr>				
+		<th> <a href="" ng-click="ordenarPor('id_professor')"> ID </a></th>
+		<th> <a href="" ng-click="ordenarPor('nome_professor')">Nome </a></th>
+		<th> <a href="" ng-click="ordenarPor('telefone')">Telefone </a></th>
+		<th> </th>
+		</tr>
+	<tr ng-repeat="prof in professores | filter:busca | orderBy:ordenacao:direcao" > 
+		<td> {{prof.id_professor}} </td>
+		<td> {{prof.nome_professor}}</td>
+		<td> {{prof.telefone}}</td>
+		<td>  <a href="#!/professores/edit/{{prof.id_professor}}" > <img src="img/editar.png" /> </a></td> 
+	</tr>
+	</table>

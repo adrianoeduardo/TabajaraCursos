@@ -1,0 +1,57 @@
+<table class="table table-striped" >
+	<h3> {{titulo1}} </h3>
+	<tr>				
+		<th> <a href=""> ID </a></th>
+		<th> <a href="">Nome </a></th>
+		<th> <a href=""> Status </a></th>
+		<th> <a href=""> Duração (meses) </a> </th>
+		<th> <a href=""> Professor </a> </th>
+		<th> <a href=""> Conteudo </a></th>
+	</tr>
+	<tr ng-controller = "cursosCtrl"> 
+		<td> {{curso.id_curso}} </td>
+		<td> {{curso.nome_curso}}</td>
+		<td> {{curso.status_curso}}</td>
+		<td> {{curso.duracao_meses}} </td>
+		<td> {{prof.nome_professor}} </td> 
+		<td ng-show="curso.conteudo.length > 0"> <a href="" data-toggle="modal" data-target="#modalDetalhes"> <img src="img/detalhes.png" /> </a> </td>
+		<td ng-hide="curso.conteudo.length > 0">  N / A </td>
+	</tr>
+</table>
+<div ng-hide="detalhes.length > 0">
+	<div class="alert alert-danger"> Não há alunos matriculados nesse curso </div>
+</div>
+<a class="btn btn-secondary" href="#!/cursos"> Voltar </a>
+
+<div ng-show="detalhes.length > 0">
+	<h3> {{titulo2}} </h3>
+	<table class="table table-striped" ng-controller="buscaCtrl"> 
+		<tr>
+			<th> <a href="" ng-click="ordenarPor('id')"> R. A. </a></th>
+			<th> <a href="" ng-click="ordenarPor('nome')"> Nome </a></th>
+			<th> <a href=""> Telefone </a></th>
+			<th> <a href="" ng-click="ordenarPor('profissao')"> Profissão </a></th>
+			<th> <a href="" ng-click="ordenarPor('matricula')"> Matrícula </a></th>
+			<th> <a href="" ng-click="ordenarPor('status_matricula')"> Status da Matrícula </a></th>
+		</tr>
+		<tr ng-repeat="x in detalhes"> 
+			<td> {{x.id}} </td>
+			<td> {{x.nome}} </td>
+			<td> {{x.telefone}} </td>
+			<td> {{x.profissao}} </td>
+			<td> {{x.matricula}} </td>
+			<td> {{x.status_matricula}} </td>
+		</tr>
+	</table>
+</div>
+
+
+<minha-modal nome="modalDetalhes">
+	<titulo-modal titulo="Detalhes do Curso"> </titulo-modal>
+	<p-modal>
+        <p ng-controller="cursosCtrl"> {{curso.conteudo}} </p>    	
+    </p-modal>
+    <botao-modal>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+   </botao-modal>
+</minha-modal>

@@ -1,0 +1,45 @@
+
+<table class="table table-striped" >
+	<h3> {{titulo1}} </h3>
+	<tr>				
+		<th> <a href=""> R.A. </a></th>
+		<th> <a href="">Nome </a></th>
+		<th> <a href="">Telefone </a></th>
+		<th> <a href=""> CPF </a> </th>
+		<th> <a href=""> RG </a></th>
+		<th> <a href="">Profissão </a></th>
+		</tr>
+	<tr ng-controller = "alunosCtrl"> 
+		<td> {{aluno.id}} </td>
+		<td> {{aluno.nome}}</td>
+		<td> {{aluno.telefone}}</td>
+		<td> {{aluno.cpf}} </td>
+		<td> {{aluno.rg}}</td>
+		<td> {{aluno.profissao}}</td>
+	</tr>
+</table>
+<div ng-hide="detalhes.length > 0">
+	<div class="alert alert-danger"> Esse aluno não está matriculado em nenhum curso </div>
+</div>
+<a class="btn btn-primary" ng-controller="alunosCtrl" href="#!/matriculas/new/{{aluno.id}}" > Matricular Aluno </a> 
+<a class="btn btn-secondary" href="#!/alunos"> Voltar </a>
+
+<div ng-show="detalhes.length > 0">
+	<h3> {{titulo2}} </h3>
+	<table class="table table-striped" ng-controller="buscaCtrl"> 
+		<tr>
+			<th> <a href="" ng-click="ordenarPor('matricula')"> Matrícula </a></th>
+			<th> <a href="" ng-click="ordenarPor('nome_curso')"> Curso </a></th>
+			<th> <a href="" ng-click="ordenarPor('status_matricula')"> Matrícula </a></th>
+			<th> <a href="" ng-click="ordenarPor('nome_professor')"> Professor </a></th>
+		</tr>
+		<tr ng-repeat="x in detalhes"> 
+			<td> {{x.matricula}} </td>
+			<td> {{x.nome_curso}} </td>
+			<td> {{x.status_matricula}} </td>
+			<td> {{x.nome_professor}} </td>
+		</tr>
+	</table>
+</div>
+
+

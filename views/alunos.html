@@ -1,0 +1,22 @@
+		
+	<table ng-show="alunos.length > 0" class="table table-striped" ng-controller="buscaCtrl">
+	<tr>
+		<input type="text" placeholder="O que você está buscando?" class="form-control" ng-model="busca" />
+	</tr>
+	<tr>				
+		<th> <a href="" ng-click="ordenarPor('id')"> R.A. </a></th>
+		<th> <a href="" ng-click="ordenarPor('nome')">Nome </a></th>
+		<th> <a href="">Telefone </a></th>
+		<th> <a href=""> Editar Aluno </a> </th>
+		<th> <a href=""> Matricular </a></th>
+		<th> <a href="">Ver Detalhes </a></th>
+		</tr>
+	<tr ng-repeat="aluno in alunos | filter:busca | orderBy:ordenacao:direcao" > 
+		<td> {{aluno.id}} </td>
+		<td> {{aluno.nome}}</td>
+		<td> {{aluno.telefone}}</td>
+		<td> <a href="#!/alunos/edit/{{aluno.id}}" > <img src="img/editar.png" /> </a></td> 
+		<td> <a href="#!/matriculas/new/{{aluno.id}}" > <img src="img/add.png" /> </a></td> 
+		<td> <a href="#!/detalhes/{{aluno.id}}" > <img src="img/detalhes.png" /> </a></td> 
+	</tr>
+	</table>

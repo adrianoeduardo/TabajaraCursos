@@ -1,0 +1,19 @@
+<table class="table table-active">
+	<tr>				
+		<th> <a href="""> R. A. </a></th>
+		<th> <a href=""> Aluno </a></th>
+		<th> <a href=""> Curso </a></th>
+	</tr>
+	<tr> 
+		<td> {{matricula.codaluno}} </td>
+		<td ng-controller="alunosCtrl"> {{aluno.nome}}</td>
+		<td> 
+			<select class="custom-select" name="curso" ng-required="true" ng-model="matricula.codcurso" ng-options="curso.id_curso as curso.nome_curso for curso in cursos">
+						<option value=""> Selecione...</option>						    
+			</select>
+		</td>
+		<td> <a href="" ng-click="enviar()"> <img src="img/save.png" /> </a> </td>
+		<td> <a href="#!/alunos"> <img src="img/voltar.png" />
+	</tr>
+</table>
+<div ng-show="msg.length" class="alert alert-info"> {{msg}} </div>

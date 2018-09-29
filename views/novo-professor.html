@@ -1,0 +1,60 @@
+<form name="formProf" class="form-control" ng-submit="enviar()"> 
+	<h2> {{titulo}} </h2>
+	<div class = "row">
+		<div class = "col-md-8"> 
+			<meu-grupo> 
+				<span-form> Nome: </span-form> 
+				<input type ="text" name ="nome" ng-required="true" ng-model="prof.nome_professor" ng-minlength="10" class="form-control" />
+		</div>
+	</div> <!-- fim da linha -->
+	<div class = "row" ng-show="formProf.nome.$dirty" ng-messages="formProf.nome.$error"> 
+			<div ng-message="required" class="alert alert-danger">Por favor preencher o campo Nome! </div>
+			<div ng-message="minlength" class="alert alert-info"> O campo nome deve ter no mínimo 10 carácteres </div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<meu-grupo>
+				<span-form> Sexo: </span-form>
+					<select class="custom-select" name="sexo" ng-required="true" ng-model="prof.sexo" ng-options="s.k as s.op for s in sexo" ng-controller="sexoCtrl">
+						<option value=""> Selecione...</option>						    
+					</select>
+				</meu-grupo>
+		</div>
+	</div> 
+	<div class="row">
+		<div class="col-md-4">
+			<meu-grupo>
+				<span-form> CPF: </span-form>
+				<input type="text" id="doccpf" name="cpf" class="form-control" ng-required="true" ng-model="prof.cpf_professor" ng-minlength="14" ui-cpf/> 
+			</meu-grupo>
+		</div> 
+	</div><!-- fim da linha -->
+	<div class="row" ng-show="formProf.cpf.$dirty" ng-messages="formProf.cpf.$error">
+		<div ng-message="required" class="alert alert-danger"> Por favor informar o CPF </div>
+		<div ng-message="minlength" class="alert alert-info"> Digite todos os dígitos do CPF! </div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<meu-grupo>
+				<span-form> Telefone: </span-form>
+					<input type="text" name="telefone" id="tel" class="form-control" ng-required="true" ng-model="prof.telefone" ng-minlength="13" ui-fone />
+			</meu-grupo>
+		</div>
+	</div> <!-- fim da linha -->
+	<div class="row" ng-show="formProf.telefone.$dirty" ng-messages="formProf.telefone.$error">
+		<div ng-message="required" class="alert alert-danger"> Favor preencher o campo telefone! </div>
+		<div ng-message="minlength" class="alert alert-info"> O Campo telefone deve ter 8 ou 9 dígitos </div>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<meu-grupo>
+				<span-form>Formações: </span-form>
+					<textarea name="formacoes" ng-model="prof.formacoes" class="form-control"> </textarea>
+			</meu-grupo>
+		</div>
+	</div> <!-- fim da linha -->
+	<button type ="submit" ng-disabled="formProf.$invalid" class="btn btn-primary"> Cadastrar Professor </button>
+ 	<a href="#!/professores" class="btn btn-secondary"> Mostrar Professores </a> 
+</form>
+
+<div ng-show="msg.length" class="alert alert-info"> {{msg}} </div>

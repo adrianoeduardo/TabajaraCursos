@@ -1,0 +1,21 @@
+<table ng-show="matriculas.length > 0" class="table table-striped" ng-controller="buscaCtrl">
+	<tr>
+		<input type="text" placeholder="O que você está buscando?" class="form-control" ng-model="busca" />
+	</tr>
+	<tr>				
+		<th> <a href="" ng-click="ordenarPor('matricula')"> Nº </a></th>
+		<th> <a href="" ng-click="ordenarPor('nome')"> Aluno </a></th>
+		<th> <a href="" ng-click="ordenarPor('nome_curso')"> Curso </a></th>
+		<th> <a href="" ng-click="ordenarPor('status_matricula')"> Status </a></th>
+		<th> <a href=""> Alterar Status </a></th>
+	</tr>
+	<tr ng-repeat="matricula in matriculas | filter:busca | orderBy:ordenacao:direcao" > 
+		<td> {{matricula.matricula}} </td>
+		<td> {{matricula.nome}}</td>
+		<td> {{matricula.nome_curso}}</td>
+		<td> {{matricula.status_matricula}}</td>
+		<td ng-hide="matricula.status_matricula == 'Curso Concluído'"> <a href="#!/matriculas/edit/{{matricula.matricula}}" > <img src="img/editar.png" /> </a></td> 
+		<td ng-show="matricula.status_matricula == 'Curso Concluído'"> </td> 
+		
+	</tr>
+	</table>

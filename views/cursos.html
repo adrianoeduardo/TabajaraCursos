@@ -1,0 +1,20 @@
+<table ng-show="cursos.length > 0" class="table table-striped" ng-controller="buscaCtrl">
+	<tr>
+		<input type="text" placeholder="O que você está buscando?" class="form-control" ng-model="busca" />
+	</tr>
+	<tr>				
+		<th> <a href="" ng-click="ordenarPor('id_curso')"> ID </a></th>
+		<th> <a href="" ng-click="ordenarPor('nome_curso')">Nome </a></th>
+		<th> <a href="" ng-click="ordenarPor('status_curso')">Status </a></th>
+		<th> Editar Curso</th>
+		<th> Ver Detalhes</th>
+		</tr>
+	<tr ng-repeat="curso in cursos | filter:busca | orderBy:ordenacao:direcao" > 
+		<td> {{curso.id_curso}} </td>
+		<td> {{curso.nome_curso}}</td>
+		<td> {{curso.status_curso}}</td>
+		<td>  <a href="#!/cursos/edit/{{curso.id_curso}}" > <img src="img/editar.png" /> </a></td> 
+		<td> <a href="#!/detalhes-curso/{{curso.id_curso}}" > <img src="img/detalhes.png" /> </a></td> 
+
+	</tr>
+	</table>

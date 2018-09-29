@@ -1,0 +1,57 @@
+<form name="formCurso" class="form-control" ng-submit="enviar()"> 
+	<h2> {{titulo}} </h2>
+	<div class = "row">
+		<div class = "col-md-8"> 
+			<meu-grupo> 
+				<span-form> Nome do Curso: </span-form> 
+				<input type ="text" name ="nome" ng-required="true" ng-model="curso.nome_curso" ng-minlength="10" class="form-control" />
+			</meu-grupo>
+		</div>
+	</div> <!-- fim da linha -->
+	<div class = "row" ng-show="formCurso.nome.$dirty" ng-messages="formCurso.nome.$error"> 
+		<div ng-message="required" class="alert alert-danger">Por favor preencher o campo Nome do Curso! </div>
+		<div ng-message="minlength" class="alert alert-info"> O campo nome do curso deve ter no mínimo 10 carácteres </div>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<meu-grupo>
+				<span-form>Conteúdo: </span-form>
+					<textarea name="conteudo" ng-model="curso.conteudo" class="form-control"> </textarea>
+			</meu-grupo>
+		</div>
+	</div> <!-- fim da linha -->
+	<div class = "row">
+		<div class = "col-md-3"> 
+			<meu-grupo> 
+				<span-form> Duração em meses: </span-form> 
+				<input type ="text" name ="duracao" ng-required="true" ng-model="curso.duracao_meses" class="form-control" ui-meses/>
+			</meu-grupo>
+		</div>
+	</div> <!-- fim da linha -->
+	<div class = "row" ng-show="formCurso.duracao.$dirty" ng-messages="formCurso.duracao.$error"> 
+		<div ng-message="required" class="alert alert-danger">Por favor preencher o campo Duração em Meses! </div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<meu-grupo> 
+				<span-form> Status do Curso: </span-form>
+				<select class="custom-select" name="status" ng-required="true" ng-model="curso.status_curso" ng-options="option.op as option.op for option in status" > 
+					<option value=""> Selecione...</option>
+				</select>
+			</meu-grupo>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<meu-grupo> 
+				<span-form> Professor: </span-form>
+				<select class="custom-select" name="status" ng-required="true" ng-model="curso.professor" ng-controller="TabajaraProfessoresCtrl" ng-options="prof.id_professor as prof.nome_professor for prof in professores" >
+					<option value=""> Selecione...</option>
+				</select>
+			</meu-grupo>
+		</div>
+	</div>
+	<button type ="submit" ng-disabled="formCurso.$invalid" class="btn btn-primary"> Cadastrar Curso </button>
+ 	<a href="#!/cursos" class="btn btn-secondary"> Mostrar Cursos </a> 
+</form>
+<div ng-show="msg.length" class="alert alert-info"> {{msg}} </div>
