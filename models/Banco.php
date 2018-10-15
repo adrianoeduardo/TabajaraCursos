@@ -127,6 +127,24 @@
         $res = $resultado->status_matricula;
         return $res;   
     }
+    public function gerarCSV($query){
+        $dados = $this->criarJson($query);
+        $todos="";
+        $topo = [];
+        foreach ($dados[0] as $key => $value) {
+            array_push($topo, $key);    
+        }
+        $topo = implode(",", $topo)."\r\n";
+        foreach ($dados as $row) {
+            $data = [];
+            foreach ($row as $key => $value) {
+            array_push($data, $value);       
+            }
+        $data = implode(",", $data)."\r\n";
+        $todos.=$data;      
+        }
+        return $topo.$todos;
+    }
 }
 
 ?>

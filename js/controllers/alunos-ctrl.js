@@ -26,7 +26,7 @@ angular.module('tabajara').controller('alunosCtrl', function ($scope, $http, $ro
 			});
 		}
 		
-		// console.log($scope.aluno);
+		
 		
 	};
 });
